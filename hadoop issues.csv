@@ -1,0 +1,2 @@
+項目	問題	解決辦法
+1	datanode 無法連回 namenode	namenode 開啟 9000 port
