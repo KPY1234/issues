@@ -1,3 +1,7 @@
 項目,問題,解決辦法
 1, 安裝hadoop tarball step-by-step 網站, https://blog.insightdatascience.com/spinning-up-a-free-hadoop-cluster-step-by-step-c406d56bae42
-2, datanode 無法連回 namenode, namenode 開啟 9000 port
+2, Failed to connect to server: csist-605c-3-R730/10.10.53.211:9000: retries get failed due to exceeded maximum allowed retries number: 10. datanode 無法連回 namenode, namenode 開啟 9000 port
+3, log 的路徑, /usr/local/hadoop/logs/
+4, cluster-ID 問題, 去 /tmp/hadoop-csist/dfs/data/current/VERSION 檔案，把 clusterID 改成 正確的 clusterID
+5, HDFS 容量太小，只讀到 / 目錄, 去 hdfs-site.xml 變更為/home 目錄 ex: <property><name>dfs.datanode.data.dir</name><value>file:///home/csist/hdfsdata/datanode</value></property>
+6, 
