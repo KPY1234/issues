@@ -1,0 +1,3 @@
+項目,問題,解決辦法
+1, 安裝spark tarball step-by-step 網站,http://blog.insightdatalabs.com/spark-cluster-step-by-step/
+2,執行 start-all.sh 無法成功看到 slaves,觀察 master node 的 port 7077是否開啟
