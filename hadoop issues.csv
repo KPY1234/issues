@@ -1,7 +1,7 @@
-¶µ¥Ø,°İÃD,¸Ñ¨M¿ìªk
-1, ¦w¸Ëhadoop tarball step-by-step ºô¯¸, https://blog.insightdatascience.com/spinning-up-a-free-hadoop-cluster-step-by-step-c406d56bae42
-2, Failed to connect to server: csist-605c-3-R730/10.10.53.211:9000: retries get failed due to exceeded maximum allowed retries number: 10. datanode µLªk³s¦^ namenode, namenode ¶}±Ò 9000 port
-3, log ªº¸ô®|, /usr/local/hadoop/logs/
-4, cluster-ID °İÃD, ¥h /tmp/hadoop-csist/dfs/data/current/VERSION ÀÉ®×¡A§â clusterID §ï¦¨ ¥¿½Tªº clusterID
-5, HDFS ®e¶q¤Ó¤p¡A¥uÅª¨ì / ¥Ø¿ı, ¥h hdfs-site.xml ÅÜ§ó¬°/home ¥Ø¿ı ex: <property><name>dfs.datanode.data.dir</name><value>file:///home/csist/hdfsdata/datanode</value></property>
+ï»¿é …ç›®,å•é¡Œ,è§£æ±ºè¾¦æ³•
+1, å®‰è£hadoop tarball step-by-step ç¶²ç«™, https://blog.insightdatascience.com/spinning-up-a-free-hadoop-cluster-step-by-step-c406d56bae42
+2, Failed to connect to server: csist-605c-3-R730/10.10.53.211:9000: retries get failed due to exceeded maximum allowed retries number: 10. datanode ç„¡æ³•é€£å› namenode, namenode é–‹å•Ÿ 9000 port
+3, log çš„è·¯å¾‘, /usr/local/hadoop/logs/
+4, cluster-ID å•é¡Œ, å» /tmp/hadoop-csist/dfs/data/current/VERSION æª”æ¡ˆï¼ŒæŠŠ clusterID æ”¹æˆ æ­£ç¢ºçš„ clusterID
+5, HDFS å®¹é‡å¤ªå°ï¼Œåªè®€åˆ° / ç›®éŒ„, å» hdfs-site.xml è®Šæ›´ç‚º/home ç›®éŒ„ ex: <property><name>dfs.datanode.data.dir</name><value>file:///home/csist/hdfsdata/datanode</value></property>
 6, 
