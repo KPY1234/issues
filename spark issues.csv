@@ -1,3 +1,8 @@
-﻿項目,問題,解決辦法
-1, 安裝spark tarball step-by-step 網站,http://blog.insightdatalabs.com/spark-cluster-step-by-step/
-2,執行 start-all.sh 無法成功看到 slaves,觀察 master node 的 port 7077是否開啟
+﻿項目, 問題, 解決辦法
+1, 安裝spark tarball step-by-step 網站, http://blog.insightdatalabs.com/spark-cluster-step-by-step/
+2, 執行 start-all.sh 無法成功看到 slaves, 觀察 master node 的 port 7077是否開啟
+3, pycharm 使用 pyspark library, 在暗 Project Interpreter 的 python3 中 interpreter Paths 加 /usr/local/python 和 /usr/local/python/lib/py4j-x.xx.x-src.zip
+4, spark streaming tutorial, https://spark.apache.org/docs/latest/streaming-programming-guide.html
+5, Connection Refused' error while running Spark Streaming on local machine, https://stackoverflow.com/questions/31632824/connection-refused-error-while-running-spark-streaming-on-local-machine
+6, Spark Streaming + Kafka Integration Guide, https://spark.apache.org/docs/latest/streaming-kafka-0-8-integration.html; http://rustyrazorblade.com/2015/05/spark-streaming-with-python-and-kafka/
+7,

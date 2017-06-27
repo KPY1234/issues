@@ -1,4 +1,4 @@
-﻿項目,問題,解決辦法
+﻿項目, 問題, 解決辦法
 1, 安裝hadoop tarball step-by-step 網站, https://blog.insightdatascience.com/spinning-up-a-free-hadoop-cluster-step-by-step-c406d56bae42
 2, Failed to connect to server: csist-605c-3-R730/10.10.53.211:9000: retries get failed due to exceeded maximum allowed retries number: 10. datanode 無法連回 namenode, namenode 開啟 9000 port
 3, log 的路徑, /usr/local/hadoop/logs/
