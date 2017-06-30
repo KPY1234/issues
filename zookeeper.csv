@@ -1,0 +1,6 @@
+項目, 問題, 解決辦法
+1, 找不到 zookeeper log file, sudo vim $ZOOKEEPER_HOME/bin/zkEnv.sh 加上 ZOO_LOG_DIR="/var/log/zookeeper" 和 ZOO_LOG4J_PROP="INFO,ROLLINGFILE"
+
+
+
+
