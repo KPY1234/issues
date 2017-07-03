@@ -1,5 +1,7 @@
 項目, 問題, 解決辦法
 1, 找不到 zookeeper log file, sudo vim $ZOOKEEPER_HOME/bin/zkEnv.sh 加上 ZOO_LOG_DIR="/var/log/zookeeper" 和 ZOO_LOG4J_PROP="INFO,ROLLINGFILE"
+2, 打 jps 看不到 QuorumPeerMain, 如果使用root 執行，則須打sudo jps
+3, 查看zookeeper 角色, sudo /usr/local/zookeeper/bin/zkServer.sh status
 
 
 
