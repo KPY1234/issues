@@ -1,0 +1,65 @@
+先安裝 CDH 5 之 repo:
+可至 https://www.cloudera.com/documentation/enterprise/5-4-x/topics/cdh_ig_cdh5_install.html#topic_4_4_1__p_32 查看安裝手冊
+                            or
+su
+cd /etc/yum.repos.d
+wget http://archive.cloudera.com/cdh5/redhat/6/x86_64/cdh/cloudera-cdh5.repo
+yum update -y
+yum clean all
+
+
+安裝 CDH 5 之 zookeeper 網址：
+https://www.cloudera.com/documentation/enterprise/5-4-x/topics/cdh_ig_zookeeper_package_install.html
+
+安裝完 CDH 5 之 repo 後:
+sudo yum install zookeeper -y
+sudo yum install zookeeper-server -y
+
+檢查是否安裝完成：
+rpm -qa | grep zookeeper
+
+出現：
+zookeeper-3.4.5+cdh5.11.1+111-1.cdh5.11.1.p0.6.el6.x86_64
+
+
+To create /var/lib/zookeeper and set permissions:
+mkdir -p /var/lib/zookeeper
+chown -R zookeeper /var/lib/zookeeper/
+
+To start ZooKeeper after a first-time install:
+service zookeeper-server init --myid=2
+service zookeeper-server start
+
+檢查是否安裝完成：
+sudo jps
+
+出現：
+xxxx QuorumPeerMain
+
+Deploy ZooKeeper as an ensemble with an odd number of servers:
+zookeeper 建議最少 3 台節點組成叢集
+
+可修改 myid
+vim /var/lib/zookeeper/myid  (此檔案必須單行，且數字唯一並為1-255)
+
+
+修改設定檔
+vim /etc/zookeeper/conf/zoo.cfg
+
+tickTime=2000
+dataDir=/var/lib/zookeeper/
+clientPort=2181
+initLimit=5
+syncLimit=2
+server.1=zoo1:2888:3888
+server.2=zoo2:2888:3888
+server.3=zoo3:2888:3888
+
+第一個port(2888) 是 follower 為了 listen to leader，第二個port(3888) 為了 leader election
+
+每個節點依照上述步驟組成ensemble，並開始所有server zookeeper service
+
+檢查：
+zookeeper-client -server hostname:port
+For example:
+zookeeper-client -server zoo1:2181
