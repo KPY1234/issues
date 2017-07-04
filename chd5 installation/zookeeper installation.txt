@@ -20,6 +20,7 @@ rpm -qa | grep zookeeper
 
 出現：
 zookeeper-3.4.5+cdh5.11.1+111-1.cdh5.11.1.p0.6.el6.x86_64
+zookeeper-server-3.4.5+cdh5.11.1+111-1.cdh5.11.1.p0.6.el6.x86_64
 
 
 To create /var/lib/zookeeper and set permissions:
@@ -30,7 +31,7 @@ To start ZooKeeper after a first-time install:
 service zookeeper-server init --myid=2
 service zookeeper-server start
 
-檢查是否安裝完成：
+檢查是否啟動成功：
 sudo jps
 
 出現：
@@ -57,9 +58,16 @@ server.3=zoo3:2888:3888
 
 第一個port(2888) 是 follower 為了 listen to leader，第二個port(3888) 為了 leader election
 
+重啟zookeeper 服務：
+service zookeeper-server restart
+
 每個節點依照上述步驟組成ensemble，並開始所有server zookeeper service
+
+檢查 zookeeper log 是否有錯誤發生：
+vim /var/log/zookeeper/zookeeper.log
 
 檢查：
 zookeeper-client -server hostname:port
 For example:
 zookeeper-client -server zoo1:2181
+

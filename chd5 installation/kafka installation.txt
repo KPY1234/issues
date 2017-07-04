@@ -1,0 +1,56 @@
+安裝 CDH 5 之 kafka 網址：
+https://www.cloudera.com/documentation/kafka/latest/topics/kafka_packaging.html#xd_583c10bfdbd326ba-590cb1d1-149e9ca9886--6fb0
+
+su
+cd /etc/yum.repos.d
+wget http://archive.cloudera.com/kafka/redhat/7/x86_64/kafka/cloudera-kafka.repo
+yum update -y
+yum clean all
+yum install kafka
+yum install kafka-server
+
+檢查是否安裝完成：
+rpm -qa | grep kafka
+
+出現：
+kafka-server-0.8.2.0+kafka1.4.0+127-1.kafka1.4.0.p0.70.el7.noarch
+kafka-0.8.2.0+kafka1.4.0+127-1.kafka1.4.0.p0.70.el7.noarch
+
+
+確保每個node的broker中 broker.id 是 unique
+並且 zookeeper.connect 指向相同 ZooKeeper for all nodes and brokers:
+vim /etc/kafka/conf/server.properties
+
+broker.id= #num  (與其他 broker 不同的數值)
+host.name= my hostname
+log.dirs=  path  (資料儲存路徑)
+num.partitions= #num (partition 數量)
+zookeeper.connect= hostname1:2181,hostname2:2181,hostname3:2181
+delete.topic.enable=true
+
+
+
+
+
+
+
+
+啟動 kafka service:
+service kafka-server start
+
+檢查是否啟動成功：
+sudo jps
+
+出現：
+xxxx Kafka
+
+檢查 kafka log 是否有錯誤發生：
+vim /var/log/kafka/server.log
+
+如果發生
+java.io.FileNotFoundException: /tmp/kafka-logs/.lock (Permission denied)
+
+執行下面命令：
+chmod 777 /tmp/kafka-logs -R
+
+
