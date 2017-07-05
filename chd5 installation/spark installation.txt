@@ -1,0 +1,31 @@
+先安裝最新 CDH 5 之 repo:
+可至 https://www.cloudera.com/documentation/enterprise/latest/topics/cdh_ig_cdh5_install.html 查看安裝手冊
+         or
+[ubuntu 16.04 Xenial]
+sudo wget 'https://archive.cloudera.com/cdh5/ubuntu/xenial/amd64/cdh/cloudera.list' \ -O /etc/apt/sources.list.d/cloudera.list
+sudo apt-get update
+
+
+[centos 7]
+
+su
+cd /etc/yum.repos.d
+wget https://archive.cloudera.com/cdh5/redhat/7/x86_64/cdh/cloudera-cdh5.repo
+yum update -y
+
+
+安裝 spark 相關套件：
+yum install spark-core spark-master spark-worker spark-history-server spark-python -y
+
+檢查是否安裝完成：
+rpm -qa | grep spark
+
+出現：
+spark-history-server-1.6.0+cdh5.11.1+506-1.cdh5.11.1.p0.6.el7.noarch
+spark-python-1.6.0+cdh5.11.1+506-1.cdh5.11.1.p0.6.el7.noarch
+spark-core-1.6.0+cdh5.11.1+506-1.cdh5.11.1.p0.6.el7.noarch
+spark-master-1.6.0+cdh5.11.1+506-1.cdh5.11.1.p0.6.el7.noarch
+spark-worker-1.6.0+cdh5.11.1+506-1.cdh5.11.1.p0.6.el7.noarch
+
+
+
