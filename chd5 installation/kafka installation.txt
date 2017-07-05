@@ -69,3 +69,20 @@ consumer = KafkaConsumer(bootstrap_servers='<kafka-broker-hostname>:9092',
 producer = KafkaProducer(bootstrap_servers='<kafka-broker-hostname>:9092')
 
 ps:<kafka-broker-hostname> 儘量不要使用 localhost
+
+安裝 kafka-manager：
+git clone https://github.com/yahoo/kafka-manager.git
+
+cd kafka-manager
+./sbt clean dist  (須等待一段時間)
+cd target/universal
+unzip kafka-manager-1.3.3.7.zip
+cd kafka-manager-1.3.3.7/
+vim conf/application.conf
+kafka-manager.zkhosts="<hostname1>:2181,<hostname2>:2181,<hostname3>:2181"
+
+開啟 kafka-manager 服務：
+bin/kafka-manager
+
+開啟 kafka-manager web UI:
+127.0.0.1:9000

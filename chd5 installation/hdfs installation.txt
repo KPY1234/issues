@@ -1,12 +1,12 @@
 先安裝最新 CDH 5 之 repo:
 可至 https://www.cloudera.com/documentation/enterprise/latest/topics/cdh_ig_cdh5_install.html 查看安裝手冊
          or
-ubuntu 16.04 Xenial
+[ubuntu 16.04 Xenial]
 sudo wget 'https://archive.cloudera.com/cdh5/ubuntu/xenial/amd64/cdh/cloudera.list' \ -O /etc/apt/sources.list.d/cloudera.list
 sudo apt-get update
 
 
-centos 7
+[centos 7]
 
 su
 cd /etc/yum.repos.d
