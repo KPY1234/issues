@@ -1,9 +1,9 @@
-先安裝 CDH 5 之 repo:
-可至 https://www.cloudera.com/documentation/enterprise/5-4-x/topics/cdh_ig_cdh5_install.html#topic_4_4_1__p_32 查看安裝手冊
+先安裝最新 CDH 5 之 repo:
+可至 https://www.cloudera.com/documentation/enterprise/latest/topics/cdh_ig_cdh5_install.html 查看安裝手冊
                             or
 su
 cd /etc/yum.repos.d
-wget http://archive.cloudera.com/cdh5/redhat/6/x86_64/cdh/cloudera-cdh5.repo
+wget https://archive.cloudera.com/cdh5/redhat/7/x86_64/cdh/cloudera-cdh5.repo
 yum update -y
 yum clean all
 
@@ -70,4 +70,11 @@ vim /var/log/zookeeper/zookeeper.log
 zookeeper-client -server hostname:port
 For example:
 zookeeper-client -server zoo1:2181
+
+
+[ubuntu]
+建立 zookeeper
+sudo apt-get install zookeeper -y
+sudo apt-get install zookeeper-server -y
+
 

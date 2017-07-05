@@ -29,12 +29,6 @@ zookeeper.connect= hostname1:2181,hostname2:2181,hostname3:2181
 delete.topic.enable=true
 
 
-
-
-
-
-
-
 啟動 kafka service:
 service kafka-server start
 
@@ -53,4 +47,25 @@ java.io.FileNotFoundException: /tmp/kafka-logs/.lock (Permission denied)
 執行下面命令：
 chmod 777 /tmp/kafka-logs -R
 
+驗證所有節點註冊至相同的 ZooKeeper, 使用 zookeeper-client 命令：
+zookeeper-client
+ls /brokers/ids
 
+查看某 ID 的資訊:
+get /brokers/ids/<ID>
+
+
+測試 publisher:
+kafka-console-producer --broker-list <hostname>:9092 --topic Hello-Kafka
+ps:測試時，<hostname> 儘量不要使用 localhost
+
+測試 consumer:
+kafka-console-consumer --topic Hello-Kafka --zookeeper localhost:2181 --from-beginning
+
+
+使用 kafka-python :
+consumer = KafkaConsumer(bootstrap_servers='<kafka-broker-hostname>:9092',
+                            group_id='my-group')
+producer = KafkaProducer(bootstrap_servers='<kafka-broker-hostname>:9092')
+
+ps:<kafka-broker-hostname> 儘量不要使用 localhost
