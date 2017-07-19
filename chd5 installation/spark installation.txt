@@ -1,0 +1,60 @@
+先安裝最新 CDH 5 之 repo:
+可至 https://www.cloudera.com/documentation/enterprise/latest/topics/cdh_ig_cdh5_install.html 查看安裝手冊
+         or
+[ubuntu 16.04 Xenial]
+sudo wget 'https://archive.cloudera.com/cdh5/ubuntu/xenial/amd64/cdh/cloudera.list' \ -O /etc/apt/sources.list.d/cloudera.list
+sudo apt-get update
+
+
+
+[centos 7]
+安裝所有 Spark 套件：
+sudo yum install spark-core spark-master spark-worker spark-history-server spark-python
+
+安裝在 YARN 中執行之必要套件：
+sudo yum install spark-core spark-history-server spark-python
+
+
+設定 Spark Standalone
+在叢集的每一台電腦編輯spark 設定檔：
+sudo vim /etc/spark/conf/spark-env.sh
+
+###
+### === IMPORTANT ===
+### Change the following to specify the Master host
+###
+export STANDALONE_SPARK_MASTER_HOST=`hostname`
+
+修改 master hostname
+
+在 master node 啟動 master server：
+sudo service spark-master start
+
+ps: master 須 開啟防火牆 port 7077，使 worker 可連至 master server
+
+在所有 worker node 啟動 worker：
+sudo service spark-worker start
+
+要停止 spark， 在適當的 node 下：
+sudo service spark-worker stop
+sudo service spark-master stop
+
+檢查是否啟動成功：
+sudo jps
+xxxxx Worker
+xxxxx Master
+
+
+Spark logs 儲存於：
+/var/log/spark
+
+Spark Master UI at spark_master:18080
+
+
+
+
+
+
+
+
+
